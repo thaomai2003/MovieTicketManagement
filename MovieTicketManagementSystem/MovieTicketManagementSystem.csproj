@@ -77,10 +77,10 @@
     <Compile Include="Controller\dashboardForm.Designer.cs">
       <DependentUpon>dashboardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Authencation\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="Authencation\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DB_Connection\movieData.cs" />
@@ -91,10 +91,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RegForm.cs">
+    <Compile Include="Authencation\RegForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegForm.Designer.cs">
+    <Compile Include="Authencation\RegForm.Designer.cs">
       <DependentUpon>RegForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Staff\staffData.cs" />
@@ -119,7 +119,7 @@
     <EmbeddedResource Include="Controller\dashboardForm.resx">
       <DependentUpon>dashboardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="Authencation\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -127,7 +127,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="RegForm.resx">
+    <EmbeddedResource Include="Authencation\RegForm.resx">
       <DependentUpon>RegForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff\staffForm.resx">
