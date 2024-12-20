@@ -1,0 +1,17 @@
+D:\C#\Class\MovieTicketManagementSystem\MovieTicketManagementSystem\bin\Debug\MovieTicketManagementSystem.exe.config
+D:\C#\Class\MovieTicketManagementSystem\MovieTicketManagementSystem\bin\Debug\MovieTicketManagementSystem.exe
+D:\C#\Class\MovieTicketManagementSystem\MovieTicketManagementSystem\bin\Debug\MovieTicketManagementSystem.pdb
+D:\C#\Class\MovieTicketManagementSystem\MovieTicketManagementSystem\obj\Debug\MovieTicketManagementSystem.csproj.AssemblyReference.cache
+D:\C#\Class\MovieTicketManagementSystem\MovieTicketManagementSystem\obj\Debug\MovieTicketManagementSystem.Properties.Resources.resources
+D:\C#\Class\MovieTicketManagementSystem\MovieTicketManagementSystem\obj\Debug\MovieTicketManagementSystem.RegForm.resources
+D:\C#\Class\MovieTicketManagementSystem\MovieTicketManagementSystem\obj\Debug\MovieTicketManagementSystem.csproj.GenerateResource.cache
+D:\C#\Class\MovieTicketManagementSystem\MovieTicketManagementSystem\obj\Debug\MovieTicketManagementSystem.csproj.CoreCompileInputs.cache
+D:\C#\Class\MovieTicketManagementSystem\MovieTicketManagementSystem\obj\Debug\MovieTicketManagementSystem.exe
+D:\C#\Class\MovieTicketManagementSystem\MovieTicketManagementSystem\obj\Debug\MovieTicketManagementSystem.pdb
+D:\C#\Class\MovieTicketManagementSystem\MovieTicketManagementSystem\obj\Debug\MovieTicketManagementSystem.AdminForm.resources
+D:\C#\Class\MovieTicketManagementSystem\MovieTicketManagementSystem\obj\Debug\MovieTicketManagementSystem.dashboardForm.resources
+D:\C#\Class\MovieTicketManagementSystem\MovieTicketManagementSystem\obj\Debug\MovieTicketManagementSystem.AddStaffsForm.resources
+D:\C#\Class\MovieTicketManagementSystem\MovieTicketManagementSystem\obj\Debug\MovieTicketManagementSystem.AddMovieForm.resources
+D:\C#\Class\MovieTicketManagementSystem\MovieTicketManagementSystem\obj\Debug\MovieTicketManagementSystem.buyTicketForm.resources
+D:\C#\Class\MovieTicketManagementSystem\MovieTicketManagementSystem\obj\Debug\MovieTicketManagementSystem.staffForm.resources
+D:\C#\Class\MovieTicketManagementSystem\MovieTicketManagementSystem\obj\Debug\MovieTicketManagementSystem.LoginForm.resources
