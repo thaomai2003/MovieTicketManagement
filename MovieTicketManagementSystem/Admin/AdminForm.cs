@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieTicketManagementSystem.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -49,6 +50,7 @@ namespace MovieTicketManagementSystem
             dashboardForm2.Show();
             addStaffsForm2.Hide();
             addMovieForm2.Hide();
+            receiptForm1.Hide();
 
             dashboardForm dForm = dashboardForm2 as dashboardForm;
 
@@ -63,6 +65,7 @@ namespace MovieTicketManagementSystem
             dashboardForm2.Hide();
             addStaffsForm2.Show();
             addMovieForm2.Hide();
+            receiptForm1.Hide();
 
             AddStaffsForm asForm = addStaffsForm2 as AddStaffsForm;
 
@@ -77,6 +80,7 @@ namespace MovieTicketManagementSystem
             dashboardForm2.Hide();
             addStaffsForm2.Hide();
             addMovieForm2.Show();
+            receiptForm1.Hide();
 
             AddMovieForm amForm = addMovieForm2 as AddMovieForm;
 
@@ -86,5 +90,19 @@ namespace MovieTicketManagementSystem
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dashboardForm2.Hide();
+            addStaffsForm2.Hide();
+            addMovieForm2.Hide();
+            receiptForm1.Show();
+
+            ReceiptForm rForm = receiptForm1 as ReceiptForm;
+
+            if (rForm != null)
+            {
+                rForm.refreshData();
+            }
+        }
     }
 }

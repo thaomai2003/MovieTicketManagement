@@ -259,5 +259,10 @@ namespace MovieTicketManagementSystem
 
             }
         }
+
+        private void addMovie_searchBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

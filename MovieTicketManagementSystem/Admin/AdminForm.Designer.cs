@@ -41,9 +41,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.dashboardForm2 = new MovieTicketManagementSystem.dashboardForm();
             this.addStaffsForm2 = new MovieTicketManagementSystem.AddStaffsForm();
             this.addMovieForm2 = new MovieTicketManagementSystem.AddMovieForm();
+            this.receiptForm1 = new MovieTicketManagementSystem.Controller.ReceiptForm();
             this.addMovieForm1 = new MovieTicketManagementSystem.AddMovieForm();
             this.addStaffsForm1 = new MovieTicketManagementSystem.AddStaffsForm();
             this.dashboardForm1 = new MovieTicketManagementSystem.dashboardForm();
@@ -71,7 +73,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(549, 8);
+            this.pictureBox2.Location = new System.Drawing.Point(613, 8);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 31);
@@ -82,12 +84,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(585, 19);
+            this.label2.Location = new System.Drawing.Point(649, 19);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 16);
+            this.label2.Size = new System.Drawing.Size(119, 16);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Welcome, MacroMan";
+            this.label2.Text = "Welcome, Admin";
             // 
             // label1
             // 
@@ -197,6 +199,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(19)))), ((int)(((byte)(13)))));
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.logout_btn);
             this.panel1.Controls.Add(this.addMovie_btn);
@@ -214,15 +217,34 @@
             this.panel3.Controls.Add(this.dashboardForm2);
             this.panel3.Controls.Add(this.addStaffsForm2);
             this.panel3.Controls.Add(this.addMovieForm2);
+            this.panel3.Controls.Add(this.receiptForm1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(188, 51);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(863, 587);
             this.panel3.TabIndex = 2;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(19)))), ((int)(((byte)(13)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(11, 420);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(177, 41);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "RECEIPT";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // dashboardForm2
             // 
-            this.dashboardForm2.Location = new System.Drawing.Point(0, 0);
+            this.dashboardForm2.Location = new System.Drawing.Point(0, -2);
             this.dashboardForm2.Margin = new System.Windows.Forms.Padding(2);
             this.dashboardForm2.Name = "dashboardForm2";
             this.dashboardForm2.Size = new System.Drawing.Size(863, 587);
@@ -241,6 +263,13 @@
             this.addMovieForm2.Name = "addMovieForm2";
             this.addMovieForm2.Size = new System.Drawing.Size(863, 587);
             this.addMovieForm2.TabIndex = 1;
+            // 
+            // receiptForm1
+            // 
+            this.receiptForm1.Location = new System.Drawing.Point(0, 0);
+            this.receiptForm1.Name = "receiptForm1";
+            this.receiptForm1.Size = new System.Drawing.Size(863, 587);
+            this.receiptForm1.TabIndex = 0;
             // 
             // addMovieForm1
             // 
@@ -304,8 +333,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button1;
         private dashboardForm dashboardForm2;
         private AddStaffsForm addStaffsForm2;
         private AddMovieForm addMovieForm2;
+        private Controller.ReceiptForm receiptForm1;
     }
 }

@@ -18,6 +18,8 @@ namespace MovieTicketManagementSystem
         {
             InitializeComponent();
             displayAvailableMovies();
+            displayAvailableSeats();
+
         }
 
         public void refreshData()
@@ -50,8 +52,14 @@ namespace MovieTicketManagementSystem
                 buyTicket_regularPrice.Text = row.Cells[4].Value.ToString();
                 pictureBox1.ImageLocation = row.Cells[7].Value.ToString();
 
-                displayAvailableSeats();
             }
+        }
+
+        private void buyTicket_selectMovie_Click(object sender, EventArgs e)
+        {
+            movie_id = buyTicket_movieID.Text.Trim();
+            displayAvailableSeats();
+
         }
 
         public void displayAvailableSeats()
@@ -127,27 +135,54 @@ namespace MovieTicketManagementSystem
         double getTotal = 0;
         private void buyTicket_caculateBtn_Click(object sender, EventArgs e)
         {
-            using(SqlConnection connect = _dbHelper.GetConnection())
+            using (SqlConnection connect = _dbHelper.GetConnection())
             {
-                string selectPrice = "SELECT movie_id, price FROM movies WHERE movie_id = '" + movie_id +"'";
+                string selectPrice = "SELECT movie_id, price FROM movies WHERE movie_id = @movie_id";
 
                 double getPrice = 0;
-                using(SqlCommand cmd = new SqlCommand(selectPrice, connect))
+                using (SqlCommand cmd = new SqlCommand(selectPrice, connect))
                 {
+                    cmd.Parameters.AddWithValue("@movie_id", movie_id);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     if (reader.Read())
                     {
-                        getPrice = Convert.ToDouble((reader["price"].Equals(null)) ? 0 : reader["price"]);
-
+                        getPrice = Convert.ToDouble(reader["price"] ?? 0);
                     }
                     reader.Close();
                 }
 
-                double getFoodPrice = (buyTicket_foods.SelectedIndex == -1) ? 0 : 100;
-                double getDrinkPrice = (buyTicket_drinks.SelectedIndex == -1) ? 0 : 50;
+                // Lấy số lượng món ăn và đồ uống đã nhập vào TextBox
+                int foodQuantity = 0;
+                int drinkQuantity = 0;
 
+                // Kiểm tra nếu giá trị trong TextBox là hợp lệ, nếu không để giá trị bằng 0
+                if (int.TryParse(buyTicket_foodNum.Text, out foodQuantity) && foodQuantity > 0)
+                {
+                    foodQuantity = foodQuantity;  // Số lượng món ăn
+                }
+                else
+                {
+                    foodQuantity = 0;  // Nếu không phải số hợp lệ, gán là 0
+                }
+
+                if (int.TryParse(buyTicket_drinkNum.Text, out drinkQuantity) && drinkQuantity > 0)
+                {
+                    drinkQuantity = drinkQuantity;  // Số lượng đồ uống
+                }
+                else
+                {
+                    drinkQuantity = 0;  // Nếu không phải số hợp lệ, gán là 0
+                }
+
+                // Tính giá đồ ăn và đồ uống
+                double getFoodPrice = (buyTicket_foods.SelectedIndex == -1) ? 0 : (foodQuantity * 100); // Mỗi món ăn giá 100
+                double getDrinkPrice = (buyTicket_drinks.SelectedIndex == -1) ? 0 : (drinkQuantity * 50); // Mỗi món uống giá 50
+
+                // Tính tổng tiền
                 getTotal = getPrice + getFoodPrice + getDrinkPrice;
+
+                // Hiển thị tổng tiền
                 buyTicket_totalPrice.Text = "$" + getTotal.ToString("0.00");
             }
         }
@@ -249,6 +284,8 @@ namespace MovieTicketManagementSystem
             buyTicket_totalPrice.Text = "$0.00";
             buyTicket_amount.Text = "";
             buyTicket_change.Text = "$0.00";
+            buyTicket_drinkNum.Text = "";
+            buyTicket_foodNum.Text = "";
         }
         private void buyTicket_clearFields_Click(object sender, EventArgs e)
         {
@@ -259,93 +296,98 @@ namespace MovieTicketManagementSystem
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             float y = 0;
-            int count = 0;
             int colWidth = 100;
-            int headerMargin = 10;
-            int tableMargin = 10;
+            int headerMargin = 40; // Tăng khoảng cách giữa tiêu đề và bảng
+            int tableMargin = 20;  // Khoảng cách trước bảng
+            float lineSpacing = 15; // Khoảng cách giữa các dòng dữ liệu
 
             Font font = new Font("Arial", 12);
             Font bold = new Font("Arial", 12, FontStyle.Bold);
-            Font headerFont = new Font("Arial", 16, FontStyle.Bold);
+            Font headerFont = new Font("Arial", 18, FontStyle.Bold);
             Font labelFont = new Font("Arial", 14, FontStyle.Bold);
 
             float margin = e.MarginBounds.Top;
 
-            StringFormat aligncenter = new StringFormat();
-            aligncenter.Alignment = StringAlignment.Center;
-            aligncenter.LineAlignment = StringAlignment.Center;
-
-            string headerText = "Mei Don't Sleep's Cinema";
-            y = (margin + count * headerFont.GetHeight(e.Graphics) + headerMargin);
-            e.Graphics.DrawString(headerText, headerFont, Brushes.Black, e.MarginBounds.Left +
-                (dataGridView1.Columns.Count / 3) * colWidth, y, aligncenter);
-            count++;
-
-            y += tableMargin;
-
-            string[] header = {"ID", "MovieID", "MovieName", "Genre", "RegPrice", "Capacity", "Status" };
-
-            for(int i = 0; i < header.Length; i++)
+            StringFormat alignCenter = new StringFormat
             {
-                y = margin + count * bold.GetHeight(e.Graphics) + tableMargin;
-                e.Graphics.DrawString(header[i], bold, Brushes.Black, e.MarginBounds.Left + i * colWidth, y, aligncenter);
-            }
-            count++;
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
 
-            float rSpace = e.MarginBounds.Bottom - y;
-            while(rowIndex < dataGridView1.Rows.Count)
+            // Header (Tiêu đề hóa đơn)
+            string headerText = "Mei Don't Sleep's Cinema";
+            e.Graphics.DrawString(headerText, headerFont, Brushes.Black, e.MarginBounds.Left + (e.MarginBounds.Width / 2), margin, alignCenter);
+            y = margin + headerFont.GetHeight(e.Graphics) + headerMargin;
+
+            // Table Header
+            string[] headers = { "ID", "MovieID", "MovieName", "Genre", "Regular Price", "Capacity", "Status" };
+            for (int i = 0; i < headers.Length; i++)
+            {
+                e.Graphics.DrawString(headers[i], bold, Brushes.Black, e.MarginBounds.Left + i * colWidth, y, alignCenter);
+            }
+            y += bold.GetHeight(e.Graphics) + lineSpacing;
+
+            // Table Data
+            while (rowIndex < dataGridView1.Rows.Count)
             {
                 DataGridViewRow row = dataGridView1.Rows[rowIndex];
-                
-                for(int q = 0; q < dataGridView1.Columns.Count - 2; q++)
+                for (int i = 0; i < dataGridView1.Columns.Count - 2; i++)
                 {
-                    object cellValue = row.Cells[q].Value;
-                    string cell = (cellValue != null) ? cellValue.ToString() : string.Empty;
+                    object cellValue = row.Cells[i].Value;
+                    string cell = cellValue != null ? cellValue.ToString() : string.Empty;
 
-                    y = margin + count * font.GetHeight(e.Graphics) + tableMargin;
-                    e.Graphics.DrawString(cell, font, Brushes.Black, e.MarginBounds.Left + q * colWidth, y, aligncenter);
+                    e.Graphics.DrawString(cell, font, Brushes.Black, e.MarginBounds.Left + i * colWidth, y, alignCenter);
                 }
-                count++;
+
+                y += font.GetHeight(e.Graphics) + lineSpacing;
                 rowIndex++;
 
-                if(y + font.GetHeight(e.Graphics) > e.MarginBounds.Bottom)
+                if (y + font.GetHeight(e.Graphics) > e.MarginBounds.Bottom)
                 {
                     e.HasMorePages = true;
                     return;
                 }
-
-                int labelMargin = (int)Math.Min(rSpace, 100);
-
-                DateTime today = DateTime.Now;
-
-                float labelX = e.MarginBounds.Right - e.Graphics.MeasureString("-------------------------", labelFont).Width;
-
-                y = e.MarginBounds.Bottom - labelMargin - labelFont.GetHeight(e.Graphics);
-                e.Graphics.DrawString("Total Price: \t$" + getTotal.ToString("0.00") + "\nAmount: \t$" + buyTicket_amount.Text
-                    + "\n\t\t---------\nChange:\t" + buyTicket_change.Text, labelFont, Brushes.Black, labelX, y);
-
-                labelMargin = (int)Math.Min(rSpace, -40);
-
-                string labelText = today.ToString();
-
-                y = e.MarginBounds.Bottom - labelMargin - labelFont.GetHeight (e.Graphics);
-                e.Graphics.DrawString(labelText, labelFont, Brushes.Black,
-                    e.MarginBounds.Right - e.Graphics.MeasureString("------------------------", labelFont).Width, y);
             }
+
+            // Footer
+            y += tableMargin;
+            e.Graphics.DrawString($"Total Price: ${getTotal:0.00}", labelFont, Brushes.Black, e.MarginBounds.Left, y);
+            y += labelFont.GetHeight(e.Graphics) + lineSpacing;
+            e.Graphics.DrawString($"Amount Paid: ${getAmount:0.00}", labelFont, Brushes.Black, e.MarginBounds.Left, y);
+            y += labelFont.GetHeight(e.Graphics) + lineSpacing;
+            e.Graphics.DrawString($"Change: ${getChange:0.00}", labelFont, Brushes.Black, e.MarginBounds.Left, y);
+
+            // Date Buy
+            y += labelFont.GetHeight(e.Graphics) + tableMargin;
+            e.Graphics.DrawString($"Date buy: {DateTime.Now:MM/dd/yyyy hh:mm tt}", font, Brushes.Black, e.MarginBounds.Left, y);
         }
+
+
 
         private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-
+            rowIndex = 0;
         }
 
-        private void buyTicket_receiptBtn_Click(object sender, EventArgs e)
+        private void buyTicket_receiptBtn_Click_1(object sender, EventArgs e)
         {
-            printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocument1_PrintPage);
-            printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(printDocument1_BeginPrint);
+            if (string.IsNullOrEmpty(movie_id) || getTotal == 0 || getAmount == 0)
+            {
+                MessageBox.Show("Please complete the purchase before printing the receipt.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            printPreviewDialog1.Document = printDocument1;
-            printPreviewDialog1.ShowDialog();
+            try
+            {
+                rowIndex = 0; // Đặt lại `rowIndex` để in từ đầu.
+                printPreviewDialog1.Document = printDocument1; // Kết nối `printDocument1` với `printPreviewDialog1`.
+                printPreviewDialog1.ShowDialog(); // Hiển thị bản xem trước trước khi in.
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while preparing the receipt: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
     }
 }

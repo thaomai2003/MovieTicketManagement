@@ -144,7 +144,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(549, 8);
+            this.pictureBox2.Location = new System.Drawing.Point(617, 8);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 31);
@@ -155,12 +155,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(585, 19);
+            this.label2.Location = new System.Drawing.Point(653, 19);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 16);
+            this.label2.Size = new System.Drawing.Size(108, 16);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Welcome, MacroMan";
+            this.label2.Text = "Welcome, Staff";
             // 
             // label1
             // 

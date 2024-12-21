@@ -213,5 +213,10 @@ namespace MovieTicketManagementSystem
         {
             clearFields();
         }
+
+        private void addStaff_searchBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(buyTicketForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.buyTicket_drinkNum = new System.Windows.Forms.TextBox();
+            this.buyTicket_foodNum = new System.Windows.Forms.TextBox();
             this.buyTicket_caculateBtn = new System.Windows.Forms.Button();
             this.buyTicket_clearFields = new System.Windows.Forms.Button();
             this.buyTicket_receiptBtn = new System.Windows.Forms.Button();
@@ -66,8 +68,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.buyTicket_foodNum = new System.Windows.Forms.TextBox();
-            this.buyTicket_drinkNum = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
@@ -90,14 +90,14 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(19)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(10)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(19)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(10)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(16, 44);
@@ -148,6 +148,22 @@
             this.panel4.Size = new System.Drawing.Size(282, 556);
             this.panel4.TabIndex = 8;
             // 
+            // buyTicket_drinkNum
+            // 
+            this.buyTicket_drinkNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buyTicket_drinkNum.Location = new System.Drawing.Point(206, 189);
+            this.buyTicket_drinkNum.Name = "buyTicket_drinkNum";
+            this.buyTicket_drinkNum.Size = new System.Drawing.Size(53, 22);
+            this.buyTicket_drinkNum.TabIndex = 41;
+            // 
+            // buyTicket_foodNum
+            // 
+            this.buyTicket_foodNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buyTicket_foodNum.Location = new System.Drawing.Point(206, 132);
+            this.buyTicket_foodNum.Name = "buyTicket_foodNum";
+            this.buyTicket_foodNum.Size = new System.Drawing.Size(53, 22);
+            this.buyTicket_foodNum.TabIndex = 40;
+            // 
             // buyTicket_caculateBtn
             // 
             this.buyTicket_caculateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(19)))), ((int)(((byte)(33)))));
@@ -197,6 +213,7 @@
             this.buyTicket_receiptBtn.TabIndex = 38;
             this.buyTicket_receiptBtn.Text = "RECEIPT";
             this.buyTicket_receiptBtn.UseVisualStyleBackColor = false;
+            this.buyTicket_receiptBtn.Click += new System.EventHandler(this.buyTicket_receiptBtn_Click_1);
             // 
             // buyTicket_buyBtn
             // 
@@ -409,6 +426,7 @@
             this.buyTicket_selectMovie.TabIndex = 21;
             this.buyTicket_selectMovie.Text = "SELECT MOVIE";
             this.buyTicket_selectMovie.UseVisualStyleBackColor = false;
+            this.buyTicket_selectMovie.Click += new System.EventHandler(this.buyTicket_selectMovie_Click);
             // 
             // buyTicket_regularPrice
             // 
@@ -529,20 +547,6 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
-            // 
-            // buyTicket_foodNum
-            // 
-            this.buyTicket_foodNum.Location = new System.Drawing.Point(206, 132);
-            this.buyTicket_foodNum.Name = "buyTicket_foodNum";
-            this.buyTicket_foodNum.Size = new System.Drawing.Size(53, 20);
-            this.buyTicket_foodNum.TabIndex = 40;
-            // 
-            // buyTicket_drinkNum
-            // 
-            this.buyTicket_drinkNum.Location = new System.Drawing.Point(206, 189);
-            this.buyTicket_drinkNum.Name = "buyTicket_drinkNum";
-            this.buyTicket_drinkNum.Size = new System.Drawing.Size(53, 20);
-            this.buyTicket_drinkNum.TabIndex = 41;
             // 
             // buyTicketForm
             // 

@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\AddMovieForm.cs">
+    <Compile Include="Controllers\AddMovieForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controller\AddMovieForm.Designer.cs">
+    <Compile Include="Controllers\AddMovieForm.Designer.cs">
       <DependentUpon>AddMovieForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\AddStaffsForm.cs">
+    <Compile Include="Controllers\AddStaffsForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controller\AddStaffsForm.Designer.cs">
+    <Compile Include="Controllers\AddStaffsForm.Designer.cs">
       <DependentUpon>AddStaffsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminForm.cs">
@@ -64,26 +64,33 @@
     <Compile Include="Admin\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\buyTicketForm.cs">
+    <Compile Include="Controllers\buyTicketForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controller\buyTicketForm.Designer.cs">
+    <Compile Include="Controllers\buyTicketForm.Designer.cs">
       <DependentUpon>buyTicketForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DB_Connection\DatabaseHelper.cs" />
-    <Compile Include="Controller\dashboardForm.cs">
+    <Compile Include="Controllers\ReceiptForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controller\dashboardForm.Designer.cs">
+    <Compile Include="Controllers\ReceiptForm.Designer.cs">
+      <DependentUpon>ReceiptForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DB_Connection\DatabaseHelper.cs" />
+    <Compile Include="Controllers\dashboardForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controllers\dashboardForm.Designer.cs">
       <DependentUpon>dashboardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Authencation\LoginForm.cs">
+    <Compile Include="Authencations\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Authencation\LoginForm.Designer.cs">
+    <Compile Include="Authencations\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DB_Connection\movieData.cs" />
+    <Compile Include="Models\movieData.cs" />
+    <Compile Include="Models\receiptData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -91,43 +98,46 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Authencation\RegForm.cs">
+    <Compile Include="Authencations\RegForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Authencation\RegForm.Designer.cs">
+    <Compile Include="Authencations\RegForm.Designer.cs">
       <DependentUpon>RegForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Staff\staffData.cs" />
+    <Compile Include="Models\staffData.cs" />
     <Compile Include="Staff\staffForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Staff\staffForm.Designer.cs">
       <DependentUpon>staffForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Controller\AddMovieForm.resx">
+    <EmbeddedResource Include="Controllers\AddMovieForm.resx">
       <DependentUpon>AddMovieForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controller\AddStaffsForm.resx">
+    <EmbeddedResource Include="Controllers\AddStaffsForm.resx">
       <DependentUpon>AddStaffsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controller\buyTicketForm.resx">
+    <EmbeddedResource Include="Controllers\buyTicketForm.resx">
       <DependentUpon>buyTicketForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controller\dashboardForm.resx">
+    <EmbeddedResource Include="Controllers\dashboardForm.resx">
       <DependentUpon>dashboardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Authencation\LoginForm.resx">
+    <EmbeddedResource Include="Authencations\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\ReceiptForm.resx">
+      <DependentUpon>ReceiptForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Authencation\RegForm.resx">
+    <EmbeddedResource Include="Authencations\RegForm.resx">
       <DependentUpon>RegForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff\staffForm.resx">
