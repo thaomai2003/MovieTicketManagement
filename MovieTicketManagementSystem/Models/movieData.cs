@@ -57,7 +57,7 @@ namespace MovieTicketManagementSystem
 
         public List<movieData> movieAvailableListData()
         {
-            List<movieData> listData = new List<movieData>();
+            List<movieData> listAvailableData = new List<movieData>();
 
             using (SqlConnection connect = _dbHelper.GetConnection())
             {
@@ -69,24 +69,24 @@ namespace MovieTicketManagementSystem
 
                     while (reader.Read())
                     {
-                        movieData mData = new movieData();
+                        movieData amData = new movieData();
 
-                        mData.ID = Convert.ToInt32(reader["ID"]);
-                        mData.MovieID = reader["movie_id"].ToString();
-                        mData.MovieName = reader["movie_name"].ToString();
-                        mData.Genre = reader["genre"].ToString();
-                        mData.Price = reader["price"].ToString();
-                        mData.Capacity = reader["capacity"].ToString();
-                        mData.Status = reader["status"].ToString();
-                        mData.Image = reader["movie_image"].ToString();
-                        mData.Date = reader["created_at"].ToString();
-                        mData.Date = reader["created_at"].ToString();
+                        amData.ID = Convert.ToInt32(reader["ID"]);
+                        amData.MovieID = reader["movie_id"].ToString();
+                        amData.MovieName = reader["movie_name"].ToString();
+                        amData.Genre = reader["genre"].ToString();
+                        amData.Price = reader["price"].ToString();
+                        amData.Capacity = reader["capacity"].ToString();
+                        amData.Status = reader["status"].ToString();
+                        amData.Image = reader["movie_image"].ToString();
+                        amData.Date = reader["created_at"].ToString();
+                        amData.Date = reader["created_at"].ToString();
 
-                        listData.Add(mData);
+                        listAvailableData.Add(amData);
                     }
                 }
             }
-            return listData;
+            return listAvailableData;
         }
 
     }

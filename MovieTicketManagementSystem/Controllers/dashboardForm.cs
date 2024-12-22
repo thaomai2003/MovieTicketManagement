@@ -44,8 +44,8 @@ namespace MovieTicketManagementSystem
             public void displayAM()
         {
             movieData mData = new movieData();
-            List<movieData> listData = mData.movieAvailableListData();
-            dataGridView1.DataSource = listData;
+            List<movieData> listAvailableData = mData.movieAvailableListData();
+            dataGridView1.DataSource = listAvailableData;
         }
         public void displayAvailableMovies()
         {

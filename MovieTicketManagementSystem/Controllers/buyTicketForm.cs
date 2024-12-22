@@ -296,13 +296,11 @@ namespace MovieTicketManagementSystem
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             float y = 0;
-            int colWidth = 100;
             int headerMargin = 40; // Tăng khoảng cách giữa tiêu đề và bảng
             int tableMargin = 20;  // Khoảng cách trước bảng
             float lineSpacing = 15; // Khoảng cách giữa các dòng dữ liệu
 
             Font font = new Font("Arial", 12);
-            Font bold = new Font("Arial", 12, FontStyle.Bold);
             Font headerFont = new Font("Arial", 18, FontStyle.Bold);
             Font labelFont = new Font("Arial", 14, FontStyle.Bold);
 
@@ -319,37 +317,28 @@ namespace MovieTicketManagementSystem
             e.Graphics.DrawString(headerText, headerFont, Brushes.Black, e.MarginBounds.Left + (e.MarginBounds.Width / 2), margin, alignCenter);
             y = margin + headerFont.GetHeight(e.Graphics) + headerMargin;
 
-            // Table Header
-            string[] headers = { "ID", "MovieID", "MovieName", "Genre", "Regular Price", "Capacity", "Status" };
-            for (int i = 0; i < headers.Length; i++)
-            {
-                e.Graphics.DrawString(headers[i], bold, Brushes.Black, e.MarginBounds.Left + i * colWidth, y, alignCenter);
-            }
-            y += bold.GetHeight(e.Graphics) + lineSpacing;
+            // Lấy thông tin của bộ phim đã chọn
+            string selectedMovieID = movie_id; // ID của bộ phim
+            string selectedMovieName = buyTicket_movieName.Text; // Tên bộ phim
+            string selectedGenre = buyTicket_genre.Text; // Thể loại bộ phim
+            string selectedRegularPrice = buyTicket_regularPrice.Text; // Giá của bộ phim
 
-            // Table Data
-            while (rowIndex < dataGridView1.Rows.Count)
-            {
-                DataGridViewRow row = dataGridView1.Rows[rowIndex];
-                for (int i = 0; i < dataGridView1.Columns.Count - 2; i++)
-                {
-                    object cellValue = row.Cells[i].Value;
-                    string cell = cellValue != null ? cellValue.ToString() : string.Empty;
+            // In thông tin chi tiết của bộ phim đã chọn
+            e.Graphics.DrawString("Movie ID: " + selectedMovieID, labelFont, Brushes.Black, e.MarginBounds.Left, y);
+            y += labelFont.GetHeight(e.Graphics) + lineSpacing;
+            e.Graphics.DrawString("Movie Name: " + selectedMovieName, labelFont, Brushes.Black, e.MarginBounds.Left, y);
+            y += labelFont.GetHeight(e.Graphics) + lineSpacing;
+            e.Graphics.DrawString("Genre: " + selectedGenre, labelFont, Brushes.Black, e.MarginBounds.Left, y);
+            y += labelFont.GetHeight(e.Graphics) + lineSpacing;
+            e.Graphics.DrawString("Regular Price: $" + selectedRegularPrice, labelFont, Brushes.Black, e.MarginBounds.Left, y);
+            y += labelFont.GetHeight(e.Graphics) + lineSpacing;
 
-                    e.Graphics.DrawString(cell, font, Brushes.Black, e.MarginBounds.Left + i * colWidth, y, alignCenter);
-                }
+            // Vẽ đường kẻ ngang ngăn cách thông tin bộ phim với phần còn lại
+            y += lineSpacing; // Khoảng cách trước đường kẻ
+            e.Graphics.DrawLine(Pens.Black, e.MarginBounds.Left, y, e.MarginBounds.Right, y);
+            y += 10; // Khoảng cách sau đường kẻ ngang
 
-                y += font.GetHeight(e.Graphics) + lineSpacing;
-                rowIndex++;
-
-                if (y + font.GetHeight(e.Graphics) > e.MarginBounds.Bottom)
-                {
-                    e.HasMorePages = true;
-                    return;
-                }
-            }
-
-            // Footer
+            // Tiến hành in các thông tin thanh toán
             y += tableMargin;
             e.Graphics.DrawString($"Total Price: ${getTotal:0.00}", labelFont, Brushes.Black, e.MarginBounds.Left, y);
             y += labelFont.GetHeight(e.Graphics) + lineSpacing;
@@ -357,12 +346,10 @@ namespace MovieTicketManagementSystem
             y += labelFont.GetHeight(e.Graphics) + lineSpacing;
             e.Graphics.DrawString($"Change: ${getChange:0.00}", labelFont, Brushes.Black, e.MarginBounds.Left, y);
 
-            // Date Buy
+            // Ngày giờ mua
             y += labelFont.GetHeight(e.Graphics) + tableMargin;
             e.Graphics.DrawString($"Date buy: {DateTime.Now:MM/dd/yyyy hh:mm tt}", font, Brushes.Black, e.MarginBounds.Left, y);
         }
-
-
 
         private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {

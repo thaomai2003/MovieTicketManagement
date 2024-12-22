@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "D:\\C#\\Class\\MovieTicketManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{03211797-B95D-4838-9CB7-A9C52BF61195}|MovieTicketManagementSystem\\MovieTicketManagementSystem.csproj|d:\\c#\\class\\movieticketmanagementsystem\\movieticketmanagementsystem\\controllers\\receiptform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03211797-B95D-4838-9CB7-A9C52BF61195}|MovieTicketManagementSystem\\MovieTicketManagementSystem.csproj|solutionrelative:movieticketmanagementsystem\\controllers\\receiptform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03211797-B95D-4838-9CB7-A9C52BF61195}|MovieTicketManagementSystem\\MovieTicketManagementSystem.csproj|d:\\c#\\class\\movieticketmanagementsystem\\movieticketmanagementsystem\\controllers\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{03211797-B95D-4838-9CB7-A9C52BF61195}|MovieTicketManagementSystem\\MovieTicketManagementSystem.csproj|solutionrelative:movieticketmanagementsystem\\controllers\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{03211797-B95D-4838-9CB7-A9C52BF61195}|MovieTicketManagementSystem\\MovieTicketManagementSystem.csproj|d:\\c#\\class\\movieticketmanagementsystem\\movieticketmanagementsystem\\controllers\\receiptform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{03211797-B95D-4838-9CB7-A9C52BF61195}|MovieTicketManagementSystem\\MovieTicketManagementSystem.csproj|solutionrelative:movieticketmanagementsystem\\controllers\\receiptform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{03211797-B95D-4838-9CB7-A9C52BF61195}|MovieTicketManagementSystem\\MovieTicketManagementSystem.csproj|d:\\c#\\class\\movieticketmanagementsystem\\movieticketmanagementsystem\\controllers\\buyticketform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03211797-B95D-4838-9CB7-A9C52BF61195}|MovieTicketManagementSystem\\MovieTicketManagementSystem.csproj|solutionrelative:movieticketmanagementsystem\\controllers\\buyticketform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{03211797-B95D-4838-9CB7-A9C52BF61195}|MovieTicketManagementSystem\\MovieTicketManagementSystem.csproj|d:\\c#\\class\\movieticketmanagementsystem\\movieticketmanagementsystem\\admin\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03211797-B95D-4838-9CB7-A9C52BF61195}|MovieTicketManagementSystem\\MovieTicketManagementSystem.csproj|solutionrelative:movieticketmanagementsystem\\admin\\adminform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03211797-B95D-4838-9CB7-A9C52BF61195}|MovieTicketManagementSystem\\MovieTicketManagementSystem.csproj|d:\\c#\\class\\movieticketmanagementsystem\\movieticketmanagementsystem\\controllers\\buyticketform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{03211797-B95D-4838-9CB7-A9C52BF61195}|MovieTicketManagementSystem\\MovieTicketManagementSystem.csproj|solutionrelative:movieticketmanagementsystem\\controllers\\buyticketform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03211797-B95D-4838-9CB7-A9C52BF61195}|MovieTicketManagementSystem\\MovieTicketManagementSystem.csproj|d:\\c#\\class\\movieticketmanagementsystem\\movieticketmanagementsystem\\controllers\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03211797-B95D-4838-9CB7-A9C52BF61195}|MovieTicketManagementSystem\\MovieTicketManagementSystem.csproj|solutionrelative:movieticketmanagementsystem\\controllers\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,41 +46,53 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ReceiptForm.cs",
-              "DocumentMoniker": "D:\\C#\\Class\\MovieTicketManagementSystem\\MovieTicketManagementSystem\\Controllers\\ReceiptForm.cs",
-              "RelativeDocumentMoniker": "MovieTicketManagementSystem\\Controllers\\ReceiptForm.cs",
-              "ToolTip": "D:\\C#\\Class\\MovieTicketManagementSystem\\MovieTicketManagementSystem\\Controllers\\ReceiptForm.cs",
-              "RelativeToolTip": "MovieTicketManagementSystem\\Controllers\\ReceiptForm.cs",
-              "ViewState": "AQIAAJ4AAAAAAAAAAAAiwL0AAAAmAAAA",
+              "DocumentIndex": 1,
+              "Title": "buyTicketForm.cs",
+              "DocumentMoniker": "D:\\C#\\Class\\MovieTicketManagementSystem\\MovieTicketManagementSystem\\Controllers\\buyTicketForm.cs",
+              "RelativeDocumentMoniker": "MovieTicketManagementSystem\\Controllers\\buyTicketForm.cs",
+              "ToolTip": "D:\\C#\\Class\\MovieTicketManagementSystem\\MovieTicketManagementSystem\\Controllers\\buyTicketForm.cs",
+              "RelativeToolTip": "MovieTicketManagementSystem\\Controllers\\buyTicketForm.cs",
+              "ViewState": "AQIAAEUBAAAAAAAAAAAgwF8BAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T13:01:49.035Z",
+              "WhenOpened": "2024-12-22T07:40:38.074Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "dashboardForm.cs [Design]",
+              "DocumentMoniker": "D:\\C#\\Class\\MovieTicketManagementSystem\\MovieTicketManagementSystem\\Controllers\\dashboardForm.cs",
+              "RelativeDocumentMoniker": "MovieTicketManagementSystem\\Controllers\\dashboardForm.cs",
+              "ToolTip": "D:\\C#\\Class\\MovieTicketManagementSystem\\MovieTicketManagementSystem\\Controllers\\dashboardForm.cs [Design]",
+              "RelativeToolTip": "MovieTicketManagementSystem\\Controllers\\dashboardForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T07:39:14.186Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AdminForm.cs",
-              "DocumentMoniker": "D:\\C#\\Class\\MovieTicketManagementSystem\\MovieTicketManagementSystem\\Admin\\AdminForm.cs",
-              "RelativeDocumentMoniker": "MovieTicketManagementSystem\\Admin\\AdminForm.cs",
-              "ToolTip": "D:\\C#\\Class\\MovieTicketManagementSystem\\MovieTicketManagementSystem\\Admin\\AdminForm.cs",
-              "RelativeToolTip": "MovieTicketManagementSystem\\Admin\\AdminForm.cs",
-              "ViewState": "AQIAAEkAAAAAAAAAAAAUwGcAAAAVAAAA",
+              "Title": "buyTicketForm.cs [Design]",
+              "DocumentMoniker": "D:\\C#\\Class\\MovieTicketManagementSystem\\MovieTicketManagementSystem\\Controllers\\buyTicketForm.cs",
+              "RelativeDocumentMoniker": "MovieTicketManagementSystem\\Controllers\\buyTicketForm.cs",
+              "ToolTip": "D:\\C#\\Class\\MovieTicketManagementSystem\\MovieTicketManagementSystem\\Controllers\\buyTicketForm.cs [Design]",
+              "RelativeToolTip": "MovieTicketManagementSystem\\Controllers\\buyTicketForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T12:46:52.732Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-22T07:34:37.794Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ReceiptForm.cs [Design]",
-              "DocumentMoniker": "D:\\C#\\Class\\MovieTicketManagementSystem\\MovieTicketManagementSystem\\Controllers\\ReceiptForm.cs",
-              "RelativeDocumentMoniker": "MovieTicketManagementSystem\\Controllers\\ReceiptForm.cs",
-              "ToolTip": "D:\\C#\\Class\\MovieTicketManagementSystem\\MovieTicketManagementSystem\\Controllers\\ReceiptForm.cs [Design]",
-              "RelativeToolTip": "MovieTicketManagementSystem\\Controllers\\ReceiptForm.cs [Design]",
+              "DocumentIndex": 3,
+              "Title": "dashboardForm.cs",
+              "DocumentMoniker": "D:\\C#\\Class\\MovieTicketManagementSystem\\MovieTicketManagementSystem\\Controllers\\dashboardForm.cs",
+              "RelativeDocumentMoniker": "MovieTicketManagementSystem\\Controllers\\dashboardForm.cs",
+              "ToolTip": "D:\\C#\\Class\\MovieTicketManagementSystem\\MovieTicketManagementSystem\\Controllers\\dashboardForm.cs",
+              "RelativeToolTip": "MovieTicketManagementSystem\\Controllers\\dashboardForm.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAQwC8AAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T06:39:54.144Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-12-22T06:46:30.527Z",
+              "EditorCaption": ""
             }
           ]
         }

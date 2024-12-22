@@ -84,6 +84,7 @@ namespace MovieTicketManagementSystem
                                 MessageBox.Show("Added Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 clearFields();
+                                displayData();
                             }
                         }
                     }
@@ -160,6 +161,7 @@ namespace MovieTicketManagementSystem
                                     cmd.ExecuteNonQuery();
                                     MessageBox.Show("Updated Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     clearFields();
+                                    displayData();
                                 }
                             }
                         }
@@ -200,6 +202,7 @@ namespace MovieTicketManagementSystem
                                     cmd.ExecuteNonQuery();
                                     MessageBox.Show("Deleted Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     clearFields();
+                                    displayData();
                                 }
                             
                         
@@ -214,9 +217,48 @@ namespace MovieTicketManagementSystem
             clearFields();
         }
 
-        private void addStaff_searchBtn_Click(object sender, EventArgs e)
+        
+        private void addStaff_searchBtn_Click_1(object sender, EventArgs e)
         {
+            try
+            {
+                string searchQuery = addStaff_search.Text.Trim(); 
 
+               
+                if (string.IsNullOrEmpty(searchQuery))
+                {
+                    displayData();
+                    return;
+                }
+
+                using (SqlConnection connect = _dbHelper.GetConnection())
+                {
+                    string query = "SELECT * FROM users WHERE role = 'Staff' AND status != 'Deleted' AND (username LIKE @search OR status LIKE @search)"; // Truy vấn tìm kiếm
+
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@search", "%" + searchQuery + "%"); 
+
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+
+                        if (table.Rows.Count > 0) 
+                        {
+                            dataGridView1.DataSource = table; 
+                        }
+                        else
+                        {
+                            MessageBox.Show("No staff found matching your search.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            dataGridView1.DataSource = null; 
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

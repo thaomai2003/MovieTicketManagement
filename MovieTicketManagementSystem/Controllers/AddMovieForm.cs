@@ -262,7 +262,44 @@ namespace MovieTicketManagementSystem
 
         private void addMovie_searchBtn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string searchQuery = addMovie_search.Text.Trim(); 
+                if (string.IsNullOrEmpty(searchQuery))
+                {
+                    MessageBox.Show("Please enter a search term.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
+                using (SqlConnection connect = _dbHelper.GetConnection())
+                {
+                    string query = "SELECT * FROM movies WHERE movie_name LIKE @search OR genre LIKE @search";
+
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@search", "%" + searchQuery + "%");
+
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+
+                        if (table.Rows.Count > 0)
+                        {
+                            dataGridView1.DataSource = table;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No movies found matching your search.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            dataGridView1.DataSource = null;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
     }
 }

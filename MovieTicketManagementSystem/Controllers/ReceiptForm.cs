@@ -178,35 +178,25 @@ namespace MovieTicketManagementSystem.Controller
         {
             try
             {
-                string searchQuery = receipt_search.Text.Trim(); // Lấy từ khóa tìm kiếm từ TextBox
+                string searchQuery = receipt_search.Text.Trim(); 
 
                 using (SqlConnection connect = _dbHelper.GetConnection())
                 {
-                    string query = string.Empty;
+                    string query;
 
-                    // Nếu TextBox rỗng, truy vấn tất cả dữ liệu
                     if (string.IsNullOrEmpty(searchQuery))
                     {
-                        displayData();
+                        displayData(); 
+                        return;
                     }
-                    else
-                    {
-                        // Nếu có từ khóa tìm kiếm, truy vấn dữ liệu theo từ khóa
-                        query = @"
-                    SELECT receipt_id, movie_id, status 
-                    FROM buy_tickets 
-                    WHERE receipt_id LIKE @search 
-                       OR movie_id LIKE @search 
-                       OR status LIKE @search";
-                    }
+
+                    query = @"SELECT * FROM buy_tickets WHERE receipt_id LIKE @search
+                                                           OR movie_id LIKE @search 
+                                                           OR status LIKE @search";
 
                     using (SqlCommand cmd = new SqlCommand(query, connect))
                     {
-                        // Nếu có tìm kiếm, gán tham số cho câu truy vấn
-                        if (!string.IsNullOrEmpty(searchQuery))
-                        {
-                            cmd.Parameters.AddWithValue("@search", $"%{searchQuery}%");
-                        }
+                        cmd.Parameters.AddWithValue("@search", $"%{searchQuery}%");
 
                         SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                         DataTable table = new DataTable();
@@ -214,11 +204,11 @@ namespace MovieTicketManagementSystem.Controller
 
                         if (table.Rows.Count > 0)
                         {
-                            dataGridView1.DataSource = table; // Hiển thị dữ liệu phù hợp trong DataGridView
+                            dataGridView1.DataSource = table; 
                         }
                         else
                         {
-                            dataGridView1.DataSource = null; // Xóa dữ liệu nếu không có kết quả
+                            dataGridView1.DataSource = null; 
                             MessageBox.Show("No matching records found", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
@@ -229,6 +219,7 @@ namespace MovieTicketManagementSystem.Controller
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
 
