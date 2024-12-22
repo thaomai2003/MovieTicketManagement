@@ -80,7 +80,7 @@ namespace MovieTicketManagementSystem
                         amData.Status = reader["status"].ToString();
                         amData.Image = reader["movie_image"].ToString();
                         amData.Date = reader["created_at"].ToString();
-                        amData.Date = reader["created_at"].ToString();
+                       
 
                         listAvailableData.Add(amData);
                     }

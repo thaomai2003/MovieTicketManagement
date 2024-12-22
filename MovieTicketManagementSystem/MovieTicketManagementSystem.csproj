@@ -70,6 +70,12 @@
     <Compile Include="Controllers\buyTicketForm.Designer.cs">
       <DependentUpon>buyTicketForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\customerDashboardForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controllers\customerDashboardForm.Designer.cs">
+      <DependentUpon>customerDashboardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\ReceiptForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -104,12 +110,12 @@
     <Compile Include="Authencations\RegForm.Designer.cs">
       <DependentUpon>RegForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\staffData.cs" />
-    <Compile Include="Staff\staffForm.cs">
+    <Compile Include="Models\customerData.cs" />
+    <Compile Include="Customer\CustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Staff\staffForm.Designer.cs">
-      <DependentUpon>staffForm.cs</DependentUpon>
+    <Compile Include="Customer\CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Controllers\AddMovieForm.resx">
       <DependentUpon>AddMovieForm.cs</DependentUpon>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\buyTicketForm.resx">
       <DependentUpon>buyTicketForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\customerDashboardForm.resx">
+      <DependentUpon>customerDashboardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\dashboardForm.resx">
       <DependentUpon>dashboardForm.cs</DependentUpon>
@@ -140,8 +149,8 @@
     <EmbeddedResource Include="Authencations\RegForm.resx">
       <DependentUpon>RegForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Staff\staffForm.resx">
-      <DependentUpon>staffForm.cs</DependentUpon>
+    <EmbeddedResource Include="Customer\CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

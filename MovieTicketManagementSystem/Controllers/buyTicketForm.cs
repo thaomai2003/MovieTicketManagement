@@ -152,37 +152,32 @@ namespace MovieTicketManagementSystem
                     reader.Close();
                 }
 
-                // Lấy số lượng món ăn và đồ uống đã nhập vào TextBox
                 int foodQuantity = 0;
                 int drinkQuantity = 0;
 
-                // Kiểm tra nếu giá trị trong TextBox là hợp lệ, nếu không để giá trị bằng 0
                 if (int.TryParse(buyTicket_foodNum.Text, out foodQuantity) && foodQuantity > 0)
                 {
-                    foodQuantity = foodQuantity;  // Số lượng món ăn
+                    foodQuantity = foodQuantity;  
                 }
                 else
                 {
-                    foodQuantity = 0;  // Nếu không phải số hợp lệ, gán là 0
+                    foodQuantity = 0; 
                 }
 
                 if (int.TryParse(buyTicket_drinkNum.Text, out drinkQuantity) && drinkQuantity > 0)
                 {
-                    drinkQuantity = drinkQuantity;  // Số lượng đồ uống
+                    drinkQuantity = drinkQuantity; 
                 }
                 else
                 {
-                    drinkQuantity = 0;  // Nếu không phải số hợp lệ, gán là 0
+                    drinkQuantity = 0; 
                 }
 
-                // Tính giá đồ ăn và đồ uống
-                double getFoodPrice = (buyTicket_foods.SelectedIndex == -1) ? 0 : (foodQuantity * 100); // Mỗi món ăn giá 100
-                double getDrinkPrice = (buyTicket_drinks.SelectedIndex == -1) ? 0 : (drinkQuantity * 50); // Mỗi món uống giá 50
+                double getFoodPrice = (buyTicket_foods.SelectedIndex == -1) ? 0 : (foodQuantity * 100); 
+                double getDrinkPrice = (buyTicket_drinks.SelectedIndex == -1) ? 0 : (drinkQuantity * 50); 
 
-                // Tính tổng tiền
                 getTotal = getPrice + getFoodPrice + getDrinkPrice;
 
-                // Hiển thị tổng tiền
                 buyTicket_totalPrice.Text = "$" + getTotal.ToString("0.00");
             }
         }
@@ -296,9 +291,9 @@ namespace MovieTicketManagementSystem
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             float y = 0;
-            int headerMargin = 40; // Tăng khoảng cách giữa tiêu đề và bảng
-            int tableMargin = 20;  // Khoảng cách trước bảng
-            float lineSpacing = 15; // Khoảng cách giữa các dòng dữ liệu
+            int headerMargin = 40; 
+            int tableMargin = 20;  
+            float lineSpacing = 15; 
 
             Font font = new Font("Arial", 12);
             Font headerFont = new Font("Arial", 18, FontStyle.Bold);
@@ -312,18 +307,15 @@ namespace MovieTicketManagementSystem
                 LineAlignment = StringAlignment.Center
             };
 
-            // Header (Tiêu đề hóa đơn)
             string headerText = "Mei Don't Sleep's Cinema";
             e.Graphics.DrawString(headerText, headerFont, Brushes.Black, e.MarginBounds.Left + (e.MarginBounds.Width / 2), margin, alignCenter);
             y = margin + headerFont.GetHeight(e.Graphics) + headerMargin;
 
-            // Lấy thông tin của bộ phim đã chọn
-            string selectedMovieID = movie_id; // ID của bộ phim
-            string selectedMovieName = buyTicket_movieName.Text; // Tên bộ phim
-            string selectedGenre = buyTicket_genre.Text; // Thể loại bộ phim
-            string selectedRegularPrice = buyTicket_regularPrice.Text; // Giá của bộ phim
+            string selectedMovieID = movie_id; 
+            string selectedMovieName = buyTicket_movieName.Text; 
+            string selectedGenre = buyTicket_genre.Text; 
+            string selectedRegularPrice = buyTicket_regularPrice.Text; 
 
-            // In thông tin chi tiết của bộ phim đã chọn
             e.Graphics.DrawString("Movie ID: " + selectedMovieID, labelFont, Brushes.Black, e.MarginBounds.Left, y);
             y += labelFont.GetHeight(e.Graphics) + lineSpacing;
             e.Graphics.DrawString("Movie Name: " + selectedMovieName, labelFont, Brushes.Black, e.MarginBounds.Left, y);
@@ -333,12 +325,11 @@ namespace MovieTicketManagementSystem
             e.Graphics.DrawString("Regular Price: $" + selectedRegularPrice, labelFont, Brushes.Black, e.MarginBounds.Left, y);
             y += labelFont.GetHeight(e.Graphics) + lineSpacing;
 
-            // Vẽ đường kẻ ngang ngăn cách thông tin bộ phim với phần còn lại
-            y += lineSpacing; // Khoảng cách trước đường kẻ
+           
+            y += lineSpacing; 
             e.Graphics.DrawLine(Pens.Black, e.MarginBounds.Left, y, e.MarginBounds.Right, y);
-            y += 10; // Khoảng cách sau đường kẻ ngang
+            y += 10; 
 
-            // Tiến hành in các thông tin thanh toán
             y += tableMargin;
             e.Graphics.DrawString($"Total Price: ${getTotal:0.00}", labelFont, Brushes.Black, e.MarginBounds.Left, y);
             y += labelFont.GetHeight(e.Graphics) + lineSpacing;
@@ -346,7 +337,6 @@ namespace MovieTicketManagementSystem
             y += labelFont.GetHeight(e.Graphics) + lineSpacing;
             e.Graphics.DrawString($"Change: ${getChange:0.00}", labelFont, Brushes.Black, e.MarginBounds.Left, y);
 
-            // Ngày giờ mua
             y += labelFont.GetHeight(e.Graphics) + tableMargin;
             e.Graphics.DrawString($"Date buy: {DateTime.Now:MM/dd/yyyy hh:mm tt}", font, Brushes.Black, e.MarginBounds.Left, y);
         }
@@ -366,9 +356,9 @@ namespace MovieTicketManagementSystem
 
             try
             {
-                rowIndex = 0; // Đặt lại `rowIndex` để in từ đầu.
-                printPreviewDialog1.Document = printDocument1; // Kết nối `printDocument1` với `printPreviewDialog1`.
-                printPreviewDialog1.ShowDialog(); // Hiển thị bản xem trước trước khi in.
+                rowIndex = 0;
+                printPreviewDialog1.Document = printDocument1; 
+                printPreviewDialog1.ShowDialog(); 
             }
             catch (Exception ex)
             {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieTicketManagementSystem.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,9 @@ using System.Windows.Forms;
 
 namespace MovieTicketManagementSystem
 {
-    public partial class staffForm : Form
+    public partial class CustomerForm : Form
     {
-        public staffForm()
+        public CustomerForm()
         {
             InitializeComponent();
         }
@@ -40,20 +41,21 @@ namespace MovieTicketManagementSystem
 
         private void dashboard_btn_Click(object sender, EventArgs e)
         {
-            dashboardForm1.Show();
+            customerDashboardForm1.Show();
             buyTicketForm1.Hide();
 
-            dashboardForm dForm = dashboardForm1 as dashboardForm;
+            customerDashboardForm cdForm = customerDashboardForm1 as customerDashboardForm;
 
-            if (dForm != null)
+            if (cdForm != null)
             {
-                dForm.refreshData();
+                cdForm.refreshData();
             }
+
         }
 
         private void buyTicket_btn_Click(object sender, EventArgs e)
         {
-            dashboardForm1.Hide();
+            customerDashboardForm1.Hide();
             buyTicketForm1.Show();
 
             buyTicketForm btForm = buyTicketForm1 as buyTicketForm;

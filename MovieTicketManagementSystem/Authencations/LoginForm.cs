@@ -58,9 +58,9 @@ namespace MovieTicketManagementSystem
                             {
                                 AdminForm adminForm = new AdminForm();
                                 adminForm.Show();
-                            }else if(role == "Staff")
+                            }else if(role == "Customer")
                             {
-                                staffForm sForm = new staffForm();
+                                CustomerForm sForm = new CustomerForm();
                                 sForm.Show();
                             }
                             this.Hide();

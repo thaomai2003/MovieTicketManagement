@@ -21,7 +21,7 @@ namespace MovieTicketManagementSystem
             InitializeComponent();
 
             displayAvailableMovies();
-            displayTotalStaff();
+            displayTotalCustomer();
             displayTotalBuys();
             displayTotalIncome();
             displayAM();
@@ -35,7 +35,7 @@ namespace MovieTicketManagementSystem
                 return;
             }
             displayAvailableMovies();
-            displayTotalStaff();
+            displayTotalCustomer();
             displayTotalBuys();
             displayTotalIncome();
             displayAM();
@@ -70,11 +70,11 @@ namespace MovieTicketManagementSystem
             }
         }
 
-        public void displayTotalStaff()
+        public void displayTotalCustomer()
         {
             using (SqlConnection connect = _dbHelper.GetConnection())
             {
-                string selectData = "select count(id) as totalStaff from users where role = 'Staff' and status = 'Active'";
+                string selectData = "select count(id) as totalCustomer from users where role = 'Customer' and status = 'Active'";
 
                 using (SqlCommand cmd = new SqlCommand(selectData, connect))
                 {
@@ -82,11 +82,11 @@ namespace MovieTicketManagementSystem
 
                     if (reader.Read())
                     {
-                        if (reader["totalStaff"] != DBNull.Value)
+                        if (reader["totalCustomer"] != DBNull.Value)
                         {
-                            decimal totalStaff = Convert.ToDecimal(reader["totalStaff"]);
+                            decimal totalCustomer = Convert.ToDecimal(reader["totalCustomer"]);
 
-                            dashboard_totalStaff.Text = totalStaff.ToString();
+                            dashboard_totalStaff.Text = totalCustomer.ToString();
                         }
                     }
                 }

@@ -34,9 +34,9 @@ namespace MovieTicketManagementSystem
 
             public void displayData()
         {
-            staffData sData = new staffData();
+            customerData sData = new customerData();
 
-            List<staffData> listData = sData.staffDataListData();
+            List<customerData> listData = sData.staffDataListData();
             dataGridView1.DataSource = listData;
         }
 

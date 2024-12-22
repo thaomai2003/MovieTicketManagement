@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MovieTicketManagementSystem
 {
-    internal class staffData
+    internal class customerData
     {
         private readonly DatabaseHelper _dbHelper = new DatabaseHelper();
         public int ID { get; set; } //0
@@ -21,20 +21,20 @@ namespace MovieTicketManagementSystem
 
         public string Status { get; set; } //4
 
-        public List<staffData> staffDataListData()
+        public List<customerData> staffDataListData()
         {
-            List<staffData> listData = new List<staffData>();
+            List<customerData> listData = new List<customerData>();
 
             using(SqlConnection connect = _dbHelper.GetConnection())
             {
-                string selectData = "SELECT * FROM users WHERE role = 'Staff' AND status != 'Deleted'";
+                string selectData = "SELECT * FROM users WHERE role = 'Customer' AND status != 'Deleted'";
 
                 using(SqlCommand cmd = new SqlCommand(selectData, connect))
                 {
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        staffData sData = new staffData();
+                        customerData sData = new customerData();
                         sData.ID = (int)reader[0];
                         sData.Username = reader[1].ToString();
                         sData.Password = reader[2].ToString();

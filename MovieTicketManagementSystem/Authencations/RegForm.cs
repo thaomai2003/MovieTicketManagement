@@ -71,7 +71,7 @@ namespace MovieTicketManagementSystem
                             {
                                 cmd.Parameters.AddWithValue("@usern", reg_username.Text.Trim());
                                 cmd.Parameters.AddWithValue("@pass", reg_password.Text.Trim());
-                                cmd.Parameters.AddWithValue("@role", "Staff");
+                                cmd.Parameters.AddWithValue("@role", "Customer");
                                 cmd.Parameters.AddWithValue("@status", "Active");
                                 cmd.Parameters.AddWithValue("@date", today);
 
